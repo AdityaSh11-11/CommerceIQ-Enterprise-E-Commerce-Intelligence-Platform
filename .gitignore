@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
+.env
+venv/
+.venv/
+env/
+
+# Streamlit Cache
+.streamlit/secrets.toml
+.streamlit/cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# SQLite
+*.sqlite3
+*.db-journal
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary
+temp/
+tmp/

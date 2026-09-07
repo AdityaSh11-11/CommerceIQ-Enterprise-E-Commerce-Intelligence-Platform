@@ -1,0 +1,2343 @@
+/* ==========================================================
+   COMMERCEIQ ENTERPRISE UI V10
+   PART A — GLOBAL FOUNDATION
+   Author : ChatGPT (Recruiter Portfolio Edition)
+========================================================== */
+
+/* ---------------- GOOGLE FONT ---------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+/* ==========================================================
+   ROOT DESIGN TOKENS
+========================================================== */
+
+:root{
+
+    /* Background Palette */
+    --bg:#070B14;
+    --bg-soft:#0B1220;
+    --surface:#111827;
+    --surface-light:#1C2434;
+    --surface-hover:#232F45;
+
+    /* Accent Colors */
+    --primary:#2563EB;
+    --primary-light:#3B82F6;
+    --secondary:#22D3EE;
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+    --purple:#7C3AED;
+
+    /* Text */
+    --text:#F8FAFC;
+    --text-soft:#CBD5E1;
+    --muted:#94A3B8;
+
+    /* Border */
+    --border:rgba(255,255,255,.08);
+
+    /* Radius */
+    --radius-xl:28px;
+    --radius-lg:22px;
+    --radius-md:18px;
+
+    /* Shadows */
+    --shadow-sm:0 6px 18px rgba(0,0,0,.18);
+    --shadow-md:0 14px 30px rgba(0,0,0,.28);
+    --shadow-lg:0 20px 50px rgba(0,0,0,.35);
+    --shadow-blue:0 18px 40px rgba(37,99,235,.22);
+
+}
+
+/* ==========================================================
+   GLOBAL RESET
+========================================================== */
+
+html,
+body,
+[class*="css"]{
+    font-family:"Inter",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    scroll-behavior:smooth;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+/* ==========================================================
+   STREAMLIT APP BACKGROUND
+========================================================== */
+
+.stApp{
+
+    color:var(--text);
+
+    background:
+        radial-gradient(circle at 12% 15%,rgba(37,99,235,.14),transparent 28%),
+        radial-gradient(circle at 88% 20%,rgba(124,58,237,.10),transparent 32%),
+        radial-gradient(circle at 75% 80%,rgba(34,211,238,.08),transparent 26%),
+        linear-gradient(
+            135deg,
+            #070B14 0%,
+            #0B1220 45%,
+            #111827 100%
+        );
+
+    background-size:180% 180%;
+    animation:gradientMove 20s ease infinite;
+    background-attachment:fixed;
+}
+
+/* Floating Lights */
+
+.stApp::before,
+.stApp::after{
+
+    content:"";
+    position:fixed;
+    width:380px;
+    height:380px;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
+    opacity:.28;
+}
+
+.stApp::before{
+
+    top:-120px;
+    left:-120px;
+    background:#2563EB;
+    animation:floatOne 18s ease-in-out infinite;
+}
+
+.stApp::after{
+
+    bottom:-150px;
+    right:-150px;
+    background:#22D3EE;
+    animation:floatTwo 22s ease-in-out infinite;
+}
+
+/* ==========================================================
+   PAGE CONTAINER
+========================================================== */
+
+.block-container{
+
+    max-width:1480px;
+    padding:1.6rem 2rem 3rem;
+    animation:fadePage .7s ease;
+}
+
+/* Remove Streamlit Branding */
+
+header,
+footer,
+#MainMenu{
+    visibility:hidden;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1,h2,h3,h4,h5,h6{
+    color:var(--text);
+    margin:0;
+}
+
+h1{
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+h2{
+    font-size:32px;
+    font-weight:800;
+}
+
+h3{
+    font-size:24px;
+    font-weight:700;
+}
+
+p{
+    color:var(--text-soft);
+    line-height:1.7;
+}
+
+/* Section Title */
+
+.section-title{
+
+    text-align:center;
+    color:white;
+    font-size:30px;
+    font-weight:800;
+    margin:42px 0 8px;
+}
+
+.section-subtitle{
+
+    text-align:center;
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:28px;
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+section[data-testid="stSidebar"]{
+
+    background:
+        linear-gradient(
+            180deg,
+            #0B1220 0%,
+            #111827 55%,
+            #172033 100%
+        ) !important;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        8px 0 30px rgba(0,0,0,.35);
+
+    padding-top:10px;
+}
+
+section[data-testid="stSidebar"] *{
+    color:white !important;
+}
+
+/* Sidebar Logo */
+
+.sidebar-logo{
+
+    text-align:center;
+    padding-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    margin-bottom:18px;
+}
+
+.sidebar-logo h1{
+    color:white;
+    font-size:30px;
+}
+
+.sidebar-logo span{
+    color:#60A5FA;
+}
+
+.sidebar-logo p{
+    color:#94A3B8;
+    font-size:13px;
+}
+
+/* Sidebar Buttons */
+
+section[data-testid="stSidebar"] .stButton button{
+
+    width:100%;
+    background:#182233 !important;
+    color:white !important;
+
+    border:1px solid rgba(255,255,255,.05);
+    border-radius:14px;
+
+    padding:12px 15px;
+    font-weight:600;
+
+    transition:.25s;
+}
+
+section[data-testid="stSidebar"] .stButton button:hover{
+
+    background:
+        linear-gradient(135deg,#2563EB,#3B82F6) !important;
+
+    transform:translateX(4px);
+
+    border-color:#3B82F6;
+}
+
+/* Sidebar Divider */
+
+.sidebar-divider{
+
+    margin:20px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* Prevent Sidebar Collapse */
+
+[data-testid="collapsedControl"]{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+}
+
+/* ==========================================================
+   PART B — HERO SECTIONS & EXECUTIVE CARDS
+========================================================== */
+
+/* ==========================================================
+   HERO FOUNDATION (ALL PAGES)
+========================================================== */
+
+.hero,
+.ai-hero,
+.live-hero,
+.forecast-hero,
+.excel-hero,
+.powerbi-hero{
+
+    position:relative;
+    overflow:hidden;
+
+    border-radius:30px;
+    padding:48px 45px;
+    margin-bottom:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+    animation:heroFade .8s ease;
+}
+
+/* Animated Shine */
+
+.hero::before,
+.ai-hero::before,
+.live-hero::before,
+.forecast-hero::before,
+.excel-hero::before,
+.powerbi-hero::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 20%,
+            rgba(255,255,255,.05) 50%,
+            transparent 80%
+        );
+
+    transform:translateX(-100%);
+    animation:heroShine 9s linear infinite;
+}
+
+/* Decorative Circle */
+
+.hero::after,
+.ai-hero::after,
+.live-hero::after,
+.forecast-hero::after,
+.excel-hero::after,
+.powerbi-hero::after{
+
+    content:"";
+    position:absolute;
+
+    width:260px;
+    height:260px;
+
+    right:-80px;
+    top:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.15),
+        transparent 70%);
+}
+
+/* ==========================================================
+   HOME HERO (BLUE)
+========================================================== */
+
+.hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #172554 0%,
+            #2563EB 55%,
+            #0F766E 100%
+        );
+}
+
+/* ==========================================================
+   AI HERO (PURPLE)
+========================================================== */
+
+.ai-hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #2E1065,
+            #5B21B6,
+            #2563EB
+        );
+}
+
+/* ==========================================================
+   LIVE HERO (CYAN)
+========================================================== */
+
+.live-hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #083344,
+            #0891B2,
+            #0EA5E9
+        );
+}
+
+/* ==========================================================
+   FORECAST HERO (PURPLE + ORANGE)
+========================================================== */
+
+.forecast-hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #312E81,
+            #6D28D9,
+            #EA580C
+        );
+}
+
+/* ==========================================================
+   EXCEL HERO (GREEN)
+========================================================== */
+
+.excel-hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #052814,
+            #047857,
+            #059669
+        );
+}
+
+/* ==========================================================
+   POWER BI HERO (YELLOW FABRIC)
+========================================================== */
+
+.powerbi-hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #78350F,
+            #CA8A04,
+            #F59E0B
+        );
+}
+
+/* ==========================================================
+   HERO TYPOGRAPHY
+========================================================== */
+
+.hero h1,
+.ai-hero h1,
+.live-hero h1,
+.forecast-hero h1,
+.excel-hero h1,
+.powerbi-hero h1{
+
+    font-size:48px;
+    font-weight:900;
+    color:#FFFFFF;
+    margin-bottom:12px;
+    letter-spacing:-1px;
+}
+
+.hero p,
+.ai-hero p,
+.live-hero p,
+.forecast-hero p,
+.excel-hero p,
+.powerbi-hero p{
+
+    font-size:17px;
+    color:#E5E7EB;
+    line-height:1.8;
+    max-width:820px;
+}
+
+/* ==========================================================
+   HERO CHIP (Business Intelligence Platform Badge)
+========================================================== */
+
+.hero-chip{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 18px;
+
+    margin-bottom:18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    color:#DBEAFE;
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    backdrop-filter:blur(12px);
+}
+
+/* Different Chip Colors */
+
+.ai-hero .hero-chip{
+    color:#DDD6FE;
+}
+
+.live-hero .hero-chip{
+    color:#CFFAFE;
+}
+
+.excel-hero .hero-chip{
+    color:#A7F3D0;
+}
+
+.forecast-hero .hero-chip{
+    color:#FCD34D;
+}
+
+.powerbi-hero .hero-chip{
+    color:#FEF3C7;
+}
+
+/* ==========================================================
+   HERO ACTION BUTTONS
+========================================================== */
+
+.hero-actions{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:28px;
+}
+
+.hero-btn{
+
+    padding:12px 22px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    color:white;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.hero-btn:hover{
+
+    transform:translateY(-3px);
+
+    background:rgba(255,255,255,.16);
+
+    border-color:#60A5FA;
+}
+
+/* ==========================================================
+   EXECUTIVE INFO CARD
+========================================================== */
+
+.executive-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #1B2435
+        );
+
+    border-radius:24px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow-md);
+
+    transition:.3s;
+}
+
+.executive-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#2563EB;
+
+    box-shadow:var(--shadow-blue);
+}
+
+.executive-card h3{
+
+    color:#F8FAFC;
+    margin-bottom:10px;
+}
+
+.executive-card p{
+
+    color:#CBD5E1;
+    font-size:14px;
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.status-badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+    font-weight:700;
+
+    margin-top:10px;
+}
+
+.status-online{
+
+    background:rgba(16,185,129,.18);
+    color:#34D399;
+    border:1px solid rgba(16,185,129,.25);
+}
+
+.status-warning{
+
+    background:rgba(245,158,11,.15);
+    color:#FBBF24;
+    border:1px solid rgba(245,158,11,.25);
+}
+
+.status-danger{
+
+    background:rgba(239,68,68,.15);
+    color:#F87171;
+    border:1px solid rgba(239,68,68,.25);
+}
+
+.status-info{
+
+    background:rgba(37,99,235,.15);
+    color:#60A5FA;
+    border:1px solid rgba(37,99,235,.25);
+}
+
+/* ==========================================================
+   PLATFORM STATUS CARD (Footer/Home)
+========================================================== */
+
+.platform-status{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #1F2937
+        );
+
+    padding:24px;
+
+    border-radius:22px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    text-align:center;
+
+    box-shadow:var(--shadow-md);
+}
+
+.platform-status h2{
+
+    color:#22D3EE;
+    font-size:34px;
+    font-weight:800;
+}
+
+.platform-status p{
+
+    color:#CBD5E1;
+}
+
+/* ==========================================================
+   HEALTH CARD (AI PAGE)
+========================================================== */
+
+.health-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #172033
+        );
+
+    padding:26px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:var(--shadow-md);
+
+    text-align:center;
+
+    transition:.35s;
+}
+
+.health-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#7C3AED;
+
+    box-shadow:
+        0 20px 40px rgba(124,58,237,.22);
+}
+
+.health-card h2{
+
+    color:#CBD5E1;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.health-card h1{
+
+    font-size:54px;
+    color:#22D3EE;
+    font-weight:900;
+}
+
+.health-card p{
+
+    color:#A5F3FC;
+    font-weight:600;
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heroShine{
+
+    0%{
+        transform:translateX(-120%);
+    }
+
+    100%{
+        transform:translateX(180%);
+    }
+}
+
+
+/* ==========================================================
+   PART C — KPI CARDS + CHART CARDS + GLASS COMPONENTS
+========================================================== */
+
+/* ==========================================================
+   KPI GRID WRAPPER
+========================================================== */
+
+.kpi-section{
+
+    background:rgba(17,24,39,.55);
+
+    backdrop-filter:blur(18px);
+
+    padding:22px;
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    margin-bottom:30px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.22);
+}
+
+/* ==========================================================
+   PREMIUM KPI CARDS
+========================================================== */
+
+div[data-testid="metric-container"]{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827 0%,
+            #1C2434 100%
+        ) !important;
+
+    border-radius:22px !important;
+
+    border:1px solid rgba(255,255,255,.08) !important;
+
+    padding:22px 18px !important;
+
+    min-height:135px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.30);
+
+    transition:all .35s ease;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+/* Top Accent */
+
+div[data-testid="metric-container"]::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563EB,
+            #22D3EE,
+            #10B981
+        );
+}
+
+/* Glow Circle */
+
+div[data-testid="metric-container"]::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-30px;
+    right:-25px;
+
+    width:110px;
+    height:110px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+        rgba(37,99,235,.20),
+        transparent 70%);
+}
+
+/* Hover */
+
+div[data-testid="metric-container"]:hover{
+
+    transform:translateY(-7px);
+
+    border-color:#3B82F6 !important;
+
+    box-shadow:
+        0 18px 40px rgba(37,99,235,.22);
+}
+
+/* KPI LABEL */
+
+div[data-testid="metric-container"] label{
+
+    color:#94A3B8 !important;
+
+    font-size:12px !important;
+
+    font-weight:700 !important;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+}
+
+/* KPI VALUE */
+
+div[data-testid="metric-container"] [data-testid="stMetricValue"]{
+
+    color:#FFFFFF !important;
+
+    font-size:34px !important;
+
+    font-weight:800 !important;
+
+    padding-top:8px;
+}
+
+/* KPI DELTA */
+
+div[data-testid="metric-container"] [data-testid="stMetricDelta"]{
+
+    color:#22C55E !important;
+
+    font-weight:700 !important;
+}
+
+/* ==========================================================
+   KPI VARIANTS (OPTIONAL CUSTOM HTML CARDS)
+========================================================== */
+
+.kpi-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #1F2937
+        );
+
+    border-radius:22px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 14px 35px rgba(0,0,0,.28);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#2563EB;
+
+    box-shadow:0 20px 45px rgba(37,99,235,.22);
+}
+
+.kpi-card .icon{
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+
+    margin-bottom:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.25),
+            rgba(34,211,238,.15)
+        );
+
+    color:#60A5FA;
+}
+
+.kpi-card h4{
+
+    color:#CBD5E1;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+.kpi-card h2{
+
+    color:#FFFFFF;
+
+    font-size:34px;
+
+    font-weight:800;
+
+    margin:10px 0;
+}
+
+.kpi-card span{
+
+    color:#22C55E;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+/* ==========================================================
+   CHART CARD (SCREENSHOT STYLE)
+========================================================== */
+
+.chart-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(11,18,32,.98),
+            rgba(17,24,39,.96)
+        );
+
+    border-radius:26px;
+
+    padding:18px;
+
+    border:1px solid rgba(59,130,246,.15);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.35);
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+/* Left Glow Border */
+
+.chart-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:4px;
+    height:100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #22D3EE,
+            #2563EB
+        );
+}
+
+/* Hover */
+
+.chart-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#3B82F6;
+
+    box-shadow:
+        0 22px 55px rgba(37,99,235,.22);
+}
+
+/* Chart Heading */
+
+.chart-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#F8FAFC;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.chart-title::before{
+
+    content:"📊";
+
+    font-size:20px;
+}
+
+/* ==========================================================
+   PLOTLY CONTAINER
+========================================================== */
+
+[data-testid="stPlotlyChart"]{
+
+    background:transparent !important;
+
+    border:none !important;
+
+    padding:0 !important;
+
+    margin-top:0 !important;
+
+    border-radius:18px !important;
+}
+
+.js-plotly-plot,
+.plot-container{
+
+    border-radius:18px !important;
+
+    overflow:hidden !important;
+}
+
+.modebar{
+    display:none !important;
+}
+
+/* ==========================================================
+   GLASS INFORMATION CARD
+========================================================== */
+
+.glass-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17,24,39,.95),
+            rgba(22,30,46,.92)
+        );
+
+    backdrop-filter:blur(18px);
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:24px;
+
+    box-shadow:
+        0 16px 40px rgba(0,0,0,.30);
+
+    margin-bottom:24px;
+
+    transition:.35s;
+}
+
+.glass-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#22D3EE;
+}
+
+.glass-card h3{
+
+    color:#60A5FA;
+
+    margin-bottom:14px;
+
+    font-size:22px;
+}
+
+.glass-card p,
+.glass-card li{
+
+    color:#CBD5E1;
+
+    line-height:1.8;
+}
+
+/* ==========================================================
+   SUMMARY / ANALYTICS CARD
+========================================================== */
+
+.summary-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #172554,
+            #1E3A8A
+        );
+
+    border-radius:22px;
+
+    padding:24px;
+
+    color:white;
+
+    box-shadow:0 16px 40px rgba(30,58,138,.28);
+}
+
+.summary-card h4{
+
+    color:#BFDBFE;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+}
+
+.summary-card h2{
+
+    color:white;
+
+    margin-top:10px;
+
+    font-size:34px;
+}
+
+.summary-card p{
+
+    color:#DBEAFE;
+}
+
+/* ==========================================================
+   AI INSIGHT CARD
+========================================================== */
+
+.ai-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #2E1065,
+            #4C1D95
+        );
+
+    border-radius:22px;
+
+    padding:24px;
+
+    border:1px solid rgba(167,139,250,.18);
+
+    box-shadow:0 18px 40px rgba(91,33,182,.22);
+
+    color:white;
+
+    margin-bottom:20px;
+}
+
+.ai-card h3{
+
+    color:#DDD6FE;
+}
+
+.ai-card p{
+
+    color:#EDE9FE;
+}
+
+/* ==========================================================
+   LIVE STATUS CARD
+========================================================== */
+
+.live-status{
+
+    background:
+        linear-gradient(
+            135deg,
+            #083344,
+            #164E63
+        );
+
+    border-radius:20px;
+
+    padding:22px;
+
+    border:1px solid rgba(34,211,238,.18);
+
+    color:white;
+}
+
+.live-status h2{
+
+    color:#67E8F9;
+}
+
+.live-status p{
+
+    color:#CFFAFE;
+}
+
+/* ==========================================================
+   INVENTORY HEALTH CARD
+========================================================== */
+
+.inventory-card{
+
+    background:
+        linear-gradient(
+            135deg,
+            #052814,
+            #065F46
+        );
+
+    border-radius:22px;
+
+    padding:22px;
+
+    color:white;
+
+    border:1px solid rgba(16,185,129,.20);
+}
+
+.inventory-card h2{
+
+    color:#6EE7B7;
+}
+
+.inventory-card p{
+
+    color:#D1FAE5;
+}
+
+/* ==========================================================
+   FEATURE GRID CARDS
+========================================================== */
+
+.feature-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            #111827,
+            #1F2937
+        );
+
+    border-radius:20px;
+
+    padding:22px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    height:100%;
+}
+
+.feature-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#22D3EE;
+
+    box-shadow:0 18px 36px rgba(34,211,238,.18);
+}
+
+.feature-card h3{
+
+    color:#60A5FA;
+
+    margin-bottom:10px;
+}
+
+.feature-card p{
+
+    color:#CBD5E1;
+}
+
+
+/* ==========================================================
+   PART D — PREMIUM CHARTS • TABLES • FORMS • BUTTONS
+========================================================== */
+
+/* =========================
+   CHART CONTAINER
+========================= */
+
+.chart-card{
+    background:linear-gradient(180deg,#121C2F,#182336);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:24px;
+    padding:20px;
+    margin:22px 0;
+    box-shadow:0 14px 35px rgba(0,0,0,.35);
+    transition:.35s ease;
+}
+
+.chart-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(59,130,246,.35);
+    box-shadow:
+        0 18px 45px rgba(37,99,235,.22),
+        0 0 25px rgba(34,211,238,.08);
+}
+
+/* Streamlit Plotly Card */
+
+[data-testid="stPlotlyChart"]{
+    background:linear-gradient(180deg,#121A29,#182132)!important;
+    border-radius:22px!important;
+    padding:18px!important;
+    border:1px solid rgba(255,255,255,.05)!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.30)!important;
+    overflow:hidden!important;
+}
+
+.plot-container,
+.js-plotly-plot{
+    border-radius:20px!important;
+    overflow:hidden!important;
+}
+
+.modebar{
+    display:none!important;
+}
+
+/* Chart Title */
+
+.chart-title{
+    color:#F8FAFC;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:16px;
+}
+
+/* =========================
+   DATAFRAME / TABLES
+========================= */
+
+[data-testid="stDataFrame"]{
+    background:#101827!important;
+    border-radius:22px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    padding:8px!important;
+    box-shadow:0 12px 28px rgba(0,0,0,.28)!important;
+}
+
+/* Table */
+
+thead tr{
+    background:#1E3A8A!important;
+}
+
+thead th{
+    color:white!important;
+    font-weight:700!important;
+}
+
+tbody tr{
+    background:#111827!important;
+    color:#E5E7EB!important;
+}
+
+tbody tr:nth-child(even){
+    background:#182132!important;
+}
+
+tbody tr:hover{
+    background:#1E293B!important;
+}
+
+/* =========================
+   SELECTBOX / FILTERS
+========================= */
+
+.stSelectbox label,
+.stMultiSelect label,
+.stDateInput label,
+.stSlider label{
+    color:#CBD5E1!important;
+    font-weight:600!important;
+}
+
+/* Input Box */
+
+.stSelectbox div[data-baseweb="select"],
+.stMultiSelect div[data-baseweb="select"],
+.stDateInput div{
+    background:#111827!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    border-radius:14px!important;
+    color:#F8FAFC!important;
+    box-shadow:none!important;
+}
+
+/* Selected Value */
+
+.stSelectbox span,
+.stMultiSelect span{
+    color:#F8FAFC!important;
+}
+
+/* Arrow */
+
+.stSelectbox svg{
+    fill:#60A5FA!important;
+}
+
+/* Dropdown Popup */
+
+div[data-baseweb="popover"]{
+    background:#111827!important;
+    border-radius:14px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+    box-shadow:0 15px 35px rgba(0,0,0,.35)!important;
+}
+
+/* Dropdown Options */
+
+li[role="option"]{
+    color:#E5E7EB!important;
+    background:#111827!important;
+    border-radius:10px;
+    transition:.2s;
+}
+
+li[role="option"]:hover{
+    background:#2563EB!important;
+    color:white!important;
+}
+
+li[aria-selected="true"]{
+    background:#1D4ED8!important;
+    color:white!important;
+}
+
+/* Text Input */
+
+.stTextInput input,
+.stNumberInput input,
+textarea{
+    background:#111827!important;
+    color:white!important;
+    border-radius:14px!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.stButton button{
+    background:linear-gradient(135deg,#2563EB,#1D4ED8)!important;
+    color:white!important;
+    border:none!important;
+    border-radius:16px!important;
+    font-weight:700!important;
+    padding:.7rem 1rem!important;
+    transition:.25s ease;
+    box-shadow:0 12px 25px rgba(37,99,235,.25);
+}
+
+.stButton button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(37,99,235,.35);
+    background:linear-gradient(135deg,#3B82F6,#2563EB)!important;
+}
+
+/* Download */
+
+.stDownloadButton button{
+    background:linear-gradient(135deg,#059669,#10B981)!important;
+    color:white!important;
+    border:none!important;
+    border-radius:16px!important;
+    font-weight:700!important;
+    box-shadow:0 12px 25px rgba(16,185,129,.30);
+}
+
+.stDownloadButton button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 35px rgba(16,185,129,.35);
+    background:linear-gradient(135deg,#10B981,#34D399)!important;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.stTabs [role="tablist"]{
+    gap:10px;
+}
+
+.stTabs [role="tab"]{
+    background:#111827!important;
+    border-radius:14px!important;
+    color:#CBD5E1!important;
+    border:1px solid rgba(255,255,255,.08)!important;
+}
+
+.stTabs [aria-selected="true"]{
+    background:#2563EB!important;
+    color:white!important;
+    box-shadow:0 8px 20px rgba(37,99,235,.30);
+}
+
+/* =========================
+   INFO / SUCCESS / WARNING
+========================= */
+
+.stAlert{
+    border-radius:18px!important;
+    border:none!important;
+}
+
+/* =========================
+   PREMIUM GLASS CARD
+========================= */
+
+.glass-card{
+    background:rgba(17,24,39,.85);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:24px;
+    margin:20px 0;
+    box-shadow:0 18px 35px rgba(0,0,0,.25);
+}
+
+.glass-card h3{
+    color:#60A5FA;
+}
+
+.glass-card p,
+.glass-card li{
+    color:#CBD5E1;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulseGlow{
+    0%,100%{
+        box-shadow:0 0 0 rgba(34,211,238,0);
+    }
+    50%{
+        box-shadow:0 0 18px rgba(34,211,238,.18);
+    }
+}
+
+.chart-card,
+.glass-card,
+[data-testid="metric-container"],
+[data-testid="stDataFrame"],
+[data-testid="stPlotlyChart"]{
+    animation:fadeUp .45s ease;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0F172A;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#334155;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#475569;
+}
+
+/* ==========================================================
+   PART E — PAGE SPECIFIC THEMES
+   Home • AI • Excel • Live Orders • Forecast • Power BI
+========================================================== */
+
+/* ==========================================================
+   EXCEL REPORTING PAGE (GREEN THEME)
+========================================================== */
+
+.excel-hero{
+    background:linear-gradient(135deg,#064E3B,#059669,#10B981);
+    border:1px solid rgba(52,211,153,.20);
+    box-shadow:0 25px 60px rgba(5,150,105,.25);
+}
+
+.excel-hero .hero-chip{
+    background:rgba(255,255,255,.12);
+    color:#A7F3D0;
+}
+
+.excel-feature{
+    background:linear-gradient(180deg,#10251E,#17362B);
+    border:1px solid rgba(16,185,129,.15);
+    border-radius:18px;
+    padding:18px;
+    color:#ECFDF5;
+    font-weight:600;
+    text-align:center;
+    transition:.35s ease;
+    box-shadow:0 10px 24px rgba(0,0,0,.22);
+}
+
+.excel-feature:hover{
+    transform:translateY(-6px);
+    background:linear-gradient(180deg,#065F46,#047857);
+    border-color:#34D399;
+    box-shadow:0 20px 40px rgba(16,185,129,.22);
+}
+
+.download-card{
+    background:linear-gradient(135deg,#064E3B,#047857,#059669);
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    border:1px solid rgba(52,211,153,.20);
+    box-shadow:0 20px 40px rgba(5,150,105,.25);
+}
+
+.download-card h3{
+    color:white;
+    font-size:24px;
+}
+
+.download-card p{
+    color:#D1FAE5;
+}
+
+/* ==========================================================
+   AI EXECUTIVE PAGE (PURPLE THEME)
+========================================================== */
+
+.ai-hero{
+    background:linear-gradient(135deg,#312E81,#5B21B6,#7C3AED);
+    border:1px solid rgba(167,139,250,.20);
+    box-shadow:0 25px 60px rgba(91,33,182,.25);
+}
+
+.ai-card{
+    background:linear-gradient(180deg,#1E1B4B,#312E81);
+    border-radius:22px;
+    padding:24px;
+    border:1px solid rgba(167,139,250,.15);
+    box-shadow:0 15px 35px rgba(0,0,0,.28);
+    transition:.35s;
+}
+
+.ai-card:hover{
+    transform:translateY(-5px);
+    border-color:#A855F7;
+    box-shadow:0 20px 45px rgba(124,58,237,.28);
+}
+
+.ai-card h3{
+    color:#DDD6FE;
+}
+
+.ai-card p{
+    color:#EDE9FE;
+}
+
+.health-card{
+    background:linear-gradient(180deg,#111827,#1F2937);
+    border-radius:22px;
+    padding:24px;
+    text-align:center;
+    border:1px solid rgba(124,58,237,.15);
+}
+
+.health-card h2{
+    color:#C4B5FD;
+}
+
+.health-card h1{
+    color:#A855F7;
+    font-size:52px;
+}
+
+/* ==========================================================
+   LIVE ORDER MONITORING (CYAN THEME)
+========================================================== */
+
+.live-hero{
+    background:linear-gradient(135deg,#083344,#0E7490,#0891B2);
+    border:1px solid rgba(34,211,238,.20);
+}
+
+.live-status-card{
+    background:linear-gradient(180deg,#102C38,#164E63);
+    border-radius:20px;
+    padding:22px;
+    border:1px solid rgba(34,211,238,.15);
+    color:white;
+    box-shadow:0 15px 35px rgba(8,145,178,.22);
+}
+
+.live-status-card h2{
+    color:#67E8F9;
+}
+
+.live-status-card p{
+    color:#CFFAFE;
+}
+
+.timeline-card{
+    background:linear-gradient(180deg,#111827,#162132);
+    border-left:4px solid #22D3EE;
+    padding:18px 20px;
+    border-radius:18px;
+    margin-bottom:14px;
+}
+
+.timeline-card h4{
+    color:#67E8F9;
+    margin-bottom:4px;
+}
+
+.timeline-card p{
+    color:#CBD5E1;
+}
+
+/* ==========================================================
+   SALES FORECASTING (ORANGE + PURPLE)
+========================================================== */
+
+.forecast-hero{
+    background:linear-gradient(135deg,#312E81,#6D28D9,#EA580C);
+    border:1px solid rgba(249,115,22,.20);
+}
+
+.forecast-card{
+    background:linear-gradient(180deg,#2A1B4A,#3B2B65);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(249,115,22,.15);
+    box-shadow:0 16px 38px rgba(109,40,217,.22);
+}
+
+.forecast-card h3{
+    color:#FDBA74;
+}
+
+.forecast-card p{
+    color:#E9D5FF;
+}
+
+.confidence-card{
+    background:linear-gradient(180deg,#40221A,#5B311F);
+    border-left:4px solid #FB923C;
+    padding:20px;
+    border-radius:18px;
+}
+
+/* ==========================================================
+   POWER BI / FABRIC PAGE (YELLOW THEME)
+========================================================== */
+
+.powerbi-hero{
+    background:linear-gradient(135deg,#78350F,#CA8A04,#F59E0B);
+    border:1px solid rgba(251,191,36,.20);
+}
+
+.powerbi-card{
+    background:linear-gradient(180deg,#3B2A0F,#4A3512);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(251,191,36,.18);
+    box-shadow:0 15px 35px rgba(245,158,11,.22);
+}
+
+.powerbi-card h3{
+    color:#FCD34D;
+}
+
+.powerbi-card p{
+    color:#FEF3C7;
+}
+
+.fabric-badge{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(251,191,36,.15);
+    color:#FCD34D;
+    font-weight:700;
+    font-size:12px;
+}
+
+/* ==========================================================
+   INVENTORY PAGE (EMERALD)
+========================================================== */
+
+.inventory-card{
+    background:linear-gradient(180deg,#052814,#064E3B);
+    border-radius:22px;
+    padding:22px;
+    border:1px solid rgba(16,185,129,.20);
+    color:white;
+}
+
+.inventory-card h2{
+    color:#6EE7B7;
+}
+
+.inventory-card p{
+    color:#D1FAE5;
+}
+
+/* ==========================================================
+   PAGE FOOTERS
+========================================================== */
+
+.ai-footer,
+.live-footer,
+.excel-footer,
+.forecast-footer,
+.powerbi-footer{
+
+    margin-top:45px;
+    padding:28px;
+    border-top:1px solid rgba(255,255,255,.08);
+    text-align:center;
+}
+
+.ai-footer h4,
+.live-footer h4,
+.excel-footer h4,
+.forecast-footer h4,
+.powerbi-footer h4{
+    color:#60A5FA;
+    font-size:22px;
+    font-weight:800;
+}
+
+.ai-footer p,
+.live-footer p,
+.excel-footer p,
+.forecast-footer p,
+.powerbi-footer p{
+    color:#94A3B8;
+}
+
+/* ==========================================================
+   PAGE ENTRY ANIMATION
+========================================================== */
+
+.page-card{
+    animation:pageSlide .5s ease;
+}
+
+@keyframes pageSlide{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+   PART F — PAGE SPECIFIC THEMES
+   CommerceIQ Enterprise V6
+========================================================== */
+
+/* ---------- HOME PAGE ---------- */
+
+.hero-home{
+    background:linear-gradient(135deg,#1E3A8A,#2563EB,#0EA5E9);
+    padding:52px;
+    border-radius:30px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(37,99,235,.30);
+}
+
+.hero-home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+    animation:heroShine 8s linear infinite;
+}
+
+.hero-home h1{
+    font-size:56px;
+    color:white;
+    font-weight:900;
+}
+
+.hero-home h2{
+    color:#BFDBFE;
+    font-size:28px;
+}
+
+.hero-home p{
+    color:#E0F2FE;
+    max-width:850px;
+    margin:auto;
+    line-height:1.7;
+}
+
+/* ---------- AI PAGE ---------- */
+
+.ai-hero{
+    background:linear-gradient(135deg,#312E81,#4F46E5,#2563EB);
+    padding:45px;
+    border-radius:28px;
+    box-shadow:0 20px 50px rgba(79,70,229,.35);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.ai-hero::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    right:-40px;
+    top:-40px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent);
+}
+
+.ai-hero h1{
+    color:white;
+    font-size:46px;
+    font-weight:900;
+}
+
+.ai-hero p{
+    color:#D6E4FF;
+}
+
+/* Health Cards */
+
+.health-card{
+    background:linear-gradient(180deg,#111827,#1F2937);
+    border-radius:22px;
+    padding:24px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:0 12px 28px rgba(0,0,0,.30);
+    transition:.3s;
+}
+
+.health-card:hover{
+    transform:translateY(-5px);
+    border-color:#6366F1;
+    box-shadow:0 18px 35px rgba(99,102,241,.25);
+}
+
+.health-card h1{
+    color:#22D3EE;
+    font-size:42px;
+    font-weight:800;
+}
+
+.health-card h2{
+    color:white;
+}
+
+.health-card p{
+    color:#CBD5E1;
+}
+
+/* ---------- LIVE ORDER PAGE ---------- */
+
+.live-hero{
+    background:linear-gradient(135deg,#064E3B,#047857,#10B981);
+    padding:45px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 22px 55px rgba(16,185,129,.25);
+}
+
+.live-hero h1{
+    color:white;
+    font-size:46px;
+}
+
+.live-hero p{
+    color:#D1FAE5;
+}
+
+.status-green,
+.status-red,
+.status-yellow,
+.status-blue{
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    font-weight:700;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.status-green{
+    background:rgba(16,185,129,.12);
+    color:#6EE7B7;
+}
+
+.status-red{
+    background:rgba(239,68,68,.12);
+    color:#FCA5A5;
+}
+
+.status-yellow{
+    background:rgba(245,158,11,.12);
+    color:#FCD34D;
+}
+
+.status-blue{
+    background:rgba(37,99,235,.12);
+    color:#93C5FD;
+}
+
+/* ---------- FORECAST PAGE ---------- */
+
+.forecast-hero{
+    background:linear-gradient(135deg,#172554,#1D4ED8,#2563EB);
+    padding:45px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(29,78,216,.25);
+}
+
+.forecast-hero h1{
+    color:white;
+    font-size:46px;
+}
+
+.forecast-hero p{
+    color:#DBEAFE;
+}
+
+/* ---------- EXCEL PAGE ---------- */
+
+.excel-hero{
+    background:linear-gradient(135deg,#052814,#065F46,#059669);
+    padding:45px;
+    border-radius:28px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 55px rgba(5,150,105,.25);
+}
+
+.excel-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.08),
+        transparent
+    );
+    animation:heroShine 8s linear infinite;
+}
+
+.excel-hero h1{
+    color:white;
+    font-size:46px;
+    font-weight:900;
+}
+
+.excel-hero p{
+    color:#D1FAE5;
+    max-width:800px;
+    margin:auto;
+}
+
+.hero-chip{
+    display:inline-block;
+    padding:8px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    color:#A7F3D0;
+    border:1px solid rgba(255,255,255,.12);
+    font-size:12px;
+    letter-spacing:1px;
+    margin-bottom:18px;
+}
+
+/* Excel Feature Cards */
+
+.excel-feature{
+    background:linear-gradient(180deg,#111827,#1F2937);
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+    border:1px solid rgba(16,185,129,.10);
+    color:#ECFDF5;
+    transition:.3s;
+    box-shadow:0 10px 24px rgba(0,0,0,.25);
+}
+
+.excel-feature:hover{
+    transform:translateY(-6px);
+    border-color:#10B981;
+    background:linear-gradient(180deg,#064E3B,#065F46);
+    box-shadow:0 18px 35px rgba(16,185,129,.25);
+}
+
+/* Report Preview */
+
+.report-preview-card{
+    background:linear-gradient(180deg,#111827,#1F2937);
+    border-radius:24px;
+    padding:22px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.30);
+}
+
+/* Download */
+
+.download-card{
+    background:linear-gradient(135deg,#064E3B,#059669);
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    border:1px solid rgba(16,185,129,.15);
+}
+
+.download-card h3{
+    color:white;
+}
+
+.download-card p{
+    color:#A7F3D0;
+}
+
+/* ---------- PLATFORM STATUS CARDS ---------- */
+
+.metric{
+    background:linear-gradient(180deg,#111827,#1F2937);
+    border-radius:22px;
+    padding:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.06);
+    box-shadow:0 12px 28px rgba(0,0,0,.25);
+}
+
+.metric h2{
+    color:#38BDF8;
+}
+
+.metric p{
+    color:#CBD5E1;
+}
+
+/* ---------- CTA SECTION ---------- */
+
+.cta-section{
+    background:linear-gradient(135deg,#1E40AF,#2563EB,#0891B2);
+    border-radius:28px;
+    padding:45px;
+    text-align:center;
+    color:white;
+    box-shadow:0 25px 60px rgba(37,99,235,.25);
+}
+
+.cta-section h2{
+    color:white;
+    font-size:34px;
+}
+
+.cta-section p{
+    color:#DBEAFE;
+}
+
+/* ---------- FOOTERS ---------- */
+
+.footer,
+.ai-footer,
+.live-footer{
+    background:linear-gradient(180deg,#111827,#0F172A);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:22px;
+    padding:28px;
+    margin-top:40px;
+    text-align:center;
+}
+
+.footer h3,
+.ai-footer h4,
+.live-footer h4{
+    color:#38BDF8;
+}
+
+.footer p,
+.ai-footer p,
+.live-footer p{
+    color:#94A3B8;
+}
