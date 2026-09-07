@@ -11,7 +11,20 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+st.markdown("""
+<style>
+    section[data-testid="stSidebar"]{
+        display:block !important;
+        visibility:visible !important;
+        width:320px !important;
+        min-width:320px !important;
+    }
 
+    button[kind="header"]{
+        display:block !important;
+    }
+</style>
+""", unsafe_allow_html=True)
 with open("dashboard_style.css") as css:
     st.markdown(f"<style>{css.read()}</style>", unsafe_allow_html=True)
 
