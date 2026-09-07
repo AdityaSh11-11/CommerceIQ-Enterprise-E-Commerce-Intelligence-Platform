@@ -146,90 +146,56 @@ footer,
    TYPOGRAPHY
 ========================================================== */
 
-h1,h2,h3,h4,h5,h6{
-    color:var(--text);
-    margin:0;
-}
-
-h1{
-    font-size:48px;
-    font-weight:900;
-    letter-spacing:-1px;
-}
-
-h2{
-    font-size:32px;
-    font-weight:800;
-}
-
-h3{
-    font-size:24px;
-    font-weight:700;
-}
-
-p{
-    color:var(--text-soft);
-    line-height:1.7;
-}
-
-/* Section Title */
-
-.section-title{
-
-    text-align:center;
-    color:white;
-    font-size:30px;
-    font-weight:800;
-    margin:42px 0 8px;
-}
-
-.section-subtitle{
-
-    text-align:center;
-    color:var(--muted);
-    font-size:15px;
-    margin-bottom:28px;
-}
-
 /* ==========================================================
-   SIDEBAR
+   COMMERCEIQ PREMIUM SIDEBAR (FIXED)
 ========================================================== */
 
+/* Sidebar Container */
 section[data-testid="stSidebar"]{
+    background: linear-gradient(
+        180deg,
+        #0B1220 0%,
+        #111827 55%,
+        #172033 100%
+    ) !important;
 
-    background:
-        linear-gradient(
-            180deg,
-            #0B1220 0%,
-            #111827 55%,
-            #172033 100%
-        ) !important;
+    border-right: 1px solid rgba(255,255,255,.08);
+    box-shadow: 8px 0 30px rgba(0,0,0,.35);
 
-    border-right:1px solid rgba(255,255,255,.08);
+    width: 305px !important;
+    min-width: 305px !important;
+    max-width: 305px !important;
 
-    box-shadow:
-        8px 0 30px rgba(0,0,0,.35);
-
-    padding-top:10px;
+    display: block !important;
+    visibility: visible !important;
+    transform: translateX(0px) !important;
+    transition: all .3s ease;
 }
 
+/* Sidebar Inner Content */
+section[data-testid="stSidebar"] > div{
+    width: 305px !important;
+    padding-top: 12px;
+}
+
+/* Sidebar Text */
 section[data-testid="stSidebar"] *{
-    color:white !important;
+    color: #FFFFFF !important;
 }
 
-/* Sidebar Logo */
-
+/* Logo */
 .sidebar-logo{
-
     text-align:center;
     padding-bottom:18px;
-    border-bottom:1px solid rgba(255,255,255,.08);
     margin-bottom:18px;
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .sidebar-logo h1{
-    color:white;
+    color:#FFFFFF;
     font-size:30px;
+    font-weight:800;
+    margin-bottom:0;
 }
 
 .sidebar-logo span{
@@ -237,53 +203,79 @@ section[data-testid="stSidebar"] *{
 }
 
 .sidebar-logo p{
-    color:#94A3B8;
+    color:#94A3B8 !important;
     font-size:13px;
 }
 
-/* Sidebar Buttons */
-
+/* Navigation Buttons */
 section[data-testid="stSidebar"] .stButton button{
-
     width:100%;
     background:#182233 !important;
     color:white !important;
 
-    border:1px solid rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
     border-radius:14px;
 
-    padding:12px 15px;
+    padding:12px 16px;
     font-weight:600;
-
-    transition:.25s;
+    transition:all .25s ease;
 }
 
 section[data-testid="stSidebar"] .stButton button:hover{
-
-    background:
-        linear-gradient(135deg,#2563EB,#3B82F6) !important;
-
-    transform:translateX(4px);
-
-    border-color:#3B82F6;
+    background:linear-gradient(135deg,#2563EB,#3B82F6) !important;
+    border-color:#3B82F6 !important;
+    transform:translateX(5px);
 }
 
-/* Sidebar Divider */
-
+/* Divider */
 .sidebar-divider{
-
     margin:20px 0;
     border-top:1px solid rgba(255,255,255,.08);
 }
 
-/* Prevent Sidebar Collapse */
-
-[data-testid="collapsedControl"]{
-    display:block !important;
-    visibility:visible !important;
-    opacity:1 !important;
+/* Streamlit Navigation */
+[data-testid="stSidebarNav"]{
+    padding-top:8px;
 }
 
+[data-testid="stSidebarNav"] a{
+    border-radius:12px;
+    margin:6px 10px;
+    padding:10px 14px;
+    transition:.25s;
+}
+
+[data-testid="stSidebarNav"] a:hover{
+    background:#2563EB !important;
+}
+
+/* Active Page */
+[data-testid="stSidebarNav"] a[aria-current="page"]{
+    background:linear-gradient(135deg,#2563EB,#3B82F6) !important;
+    color:white !important;
+}
+
+/* Collapse Button Visible */
+[data-testid="collapsedControl"]{
+    display:flex !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    position:fixed !important;
+    left:12px;
+    top:12px;
+    z-index:999999;
+}
+
+/* Prevent Sidebar Hiding on Cloud */
+@media (min-width:768px){
+    section[data-testid="stSidebar"]{
+        margin-left:0 !important;
+    }
+
+    .stAppViewContainer{
+        margin-left:0 !important;
+    }
+}
 /* ==========================================================
    PART B — HERO SECTIONS & EXECUTIVE CARDS
 ========================================================== */
