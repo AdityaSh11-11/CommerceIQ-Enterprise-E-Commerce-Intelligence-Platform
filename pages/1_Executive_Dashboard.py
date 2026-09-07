@@ -36,7 +36,7 @@ st.markdown("""
 <div class="hero-small">
 
 <div class="hero-chip">
-COMMERCEIQ • ENTERPRISE ANALYTICS
+COMMERCEIQ ENTERPRISE ANALYTICS
 </div>
 
 <h1>Executive Intelligence Dashboard</h1>
