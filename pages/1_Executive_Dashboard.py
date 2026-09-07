@@ -188,9 +188,7 @@ with left:
 
     ### Business Health Score
 
-    <h1 style="font-size:56px;
-               color:{health_color};
-               margin-bottom:0;">
+    <h1 style="font-size:56px;color:{health_color};margin-bottom:0;">
         {score}/100
     </h1>
 
