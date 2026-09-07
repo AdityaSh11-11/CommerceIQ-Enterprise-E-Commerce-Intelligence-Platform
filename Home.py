@@ -2,10 +2,6 @@ import streamlit as st
 from sqlalchemy import create_engine, text
 from config import DATABASE_URL
 
-# --------------------------------------------------
-# PAGE CONFIG
-# --------------------------------------------------
-
 st.set_page_config(
     page_title="CommerceIQ",
     page_icon="🛒",
@@ -18,10 +14,6 @@ with open("style.css") as f:
 
 engine = create_engine(DATABASE_URL)
 
-# --------------------------------------------------
-# DATABASE STATUS
-# --------------------------------------------------
-
 def database_status():
     try:
         with engine.connect() as conn:
@@ -31,10 +23,6 @@ def database_status():
         return False
 
 status = "🟢 ONLINE" if database_status() else "🔴 OFFLINE"
-
-# ==================================================
-# HERO SECTION
-# ==================================================
 
 st.markdown(f"""
 <div class="hero-home">
@@ -61,10 +49,6 @@ predictive intelligence, AI-powered recommendations and executive decision suppo
 </div>
 """, unsafe_allow_html=True)
 
-
-# ==================================================
-# CORE PLATFORM CAPABILITIES
-# ==================================================
 
 st.markdown("<h2 class='center-title'>Core Platform Capabilities</h2>", unsafe_allow_html=True)
 
@@ -99,11 +83,6 @@ for i, feature in enumerate(features):
         </div>
         """, unsafe_allow_html=True)
 
-
-# ==================================================
-# CTA SECTION
-# ==================================================
-
 st.markdown("""
 <div class="cta-section">
 
@@ -115,10 +94,6 @@ CommerceIQ combines Business Intelligence, Machine Learning and Generative AI in
 
 </div>
 """, unsafe_allow_html=True)
-
-# ==================================================
-# FOOTER
-# ==================================================
 
 st.markdown("""
 <div class="footer-premium">
