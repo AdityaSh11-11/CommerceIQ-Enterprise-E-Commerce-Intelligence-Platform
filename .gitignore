@@ -24,6 +24,9 @@ env/
 *.sqlite3
 *.db-journal
 
+# Allow main database
+!commerceiq.db
+
 # Mac
 .DS_Store
 
