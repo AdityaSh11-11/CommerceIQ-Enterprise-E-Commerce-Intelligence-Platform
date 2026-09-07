@@ -88,8 +88,7 @@ def generate_order():
             weights=weights,
             k=random.randint(1, 5)
         )
-
-        # Remove duplicates
+        
         selected_products = list(
             {p.product_id: p for p in selected_products}.values()
         )
@@ -119,7 +118,6 @@ def generate_order():
 
             subtotal += line_total
 
-        # Business calculations
         discount = round(subtotal * 0.05, 2)
 
         taxable_amount = subtotal - discount
@@ -180,7 +178,7 @@ def live_orders():
 if __name__ == "__main__":
 
     print("="*60)
-    print("🚀 AI COMMERCE LIVE TRANSACTION ENGINE")
+    print("AI COMMERCE LIVE TRANSACTION ENGINE")
     print("="*60)
 
     print("Starting automatic order generation...")
