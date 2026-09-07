@@ -43,7 +43,7 @@ COMMERCEIQ ENTERPRISE ANALYTICS
 
 <p>
 Monitor revenue, customer growth, inventory health, operational performance
-and business KPIs in real time through CommerceIQ's Executive Analytics Engine.
+and business KPIs in real time through CommerceIQ Executive Analytics Engine.
 </p>
 
 </div>
