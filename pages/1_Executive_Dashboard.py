@@ -239,7 +239,7 @@ i1, i2, i3, i4 = st.columns(4)
 with i1:
     st.markdown(f"""
     <div class="status-card">
-        <h2>{growth_percent:+.1f}%</h2>
+        <h2>{growth_percent:True}%</h2>
         <p>Revenue Growth</p>
     </div>
     """, unsafe_allow_html=True)
