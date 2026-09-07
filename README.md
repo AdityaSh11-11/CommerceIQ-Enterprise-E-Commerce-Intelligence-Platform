@@ -1,4 +1,4 @@
-# CommerceIQ — AI Powered Enterprise E-Commerce Analytics Platform
+# CommerceIQ — Enterprise E-Commerce Analytics Platform
 
 <p align="center">
   <b>End-to-End Business Intelligence Platform built using Python, SQL, Streamlit, SQLite & Power BI</b>
