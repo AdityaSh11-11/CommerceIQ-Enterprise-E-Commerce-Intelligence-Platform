@@ -1,4 +1,4 @@
-# 🚀 CommerceIQ — AI Powered Enterprise E-Commerce Analytics Platform
+# CommerceIQ — AI Powered Enterprise E-Commerce Analytics Platform
 
 <p align="center">
   <b>End-to-End Business Intelligence Platform built using Python, SQL, Streamlit, SQLite & Power BI</b>
@@ -10,7 +10,7 @@
 
 ---
 
-## 🌟 About CommerceIQ
+## About CommerceIQ
 
 **CommerceIQ** is a production-style **Enterprise E-Commerce Analytics Platform** that transforms raw transactional data into actionable business intelligence.
 
@@ -20,13 +20,13 @@ The platform is designed to help business teams monitor sales, identify customer
 
 ---
 
-# 🎯 Business Problems Solved
+# Business Problems Solved
 
-<table><table-row><table-cell width="36">📈</table-cell><table-cell><text weight=medium>Sales Intelligence</text></table-cell><table-cell>Identify revenue trends, seasonal demand, category growth and regional sales performance.</table-cell></table-row><table-row><table-cell>👥</table-cell><table-cell><text weight=medium>Customer Intelligence</text></table-cell><table-cell>Segment customers using RFM analysis, identify VIP customers and detect churn risk.</table-cell></table-row><table-row><table-cell>🛍️</table-cell><table-cell><text weight=medium>Product Intelligence</text></table-cell><table-cell>Track best-selling products, inventory health, ratings and brand performance.</table-cell></table-row><table-row><table-cell>🤖</table-cell><table-cell><text weight=medium>AI Business Insights</text></table-cell><table-cell>Automatically generate business recommendations, KPI summaries and growth opportunities.</table-cell></table-row><table-row><table-cell>⚙️</table-cell><table-cell><text weight=medium>Data Engineering</text></table-cell><table-cell>Clean, validate and upload large datasets directly into SQLite with automatic schema detection.</table-cell></table-row></table>
+<table><table-row><table-cell width="36"></table-cell><table-cell><text weight=medium>Sales Intelligence</text></table-cell><table-cell>Identify revenue trends, seasonal demand, category growth and regional sales performance.</table-cell></table-row><table-row><table-cell></table-cell><table-cell><text weight=medium>Customer Intelligence</text></table-cell><table-cell>Segment customers using RFM analysis, identify VIP customers and detect churn risk.</table-cell></table-row><table-row><table-cell></table-cell><table-cell><text weight=medium>Product Intelligence</text></table-cell><table-cell>Track best-selling products, inventory health, ratings and brand performance.</table-cell></table-row><table-row><table-cell></table-cell><table-cell><text weight=medium>AI Business Insights</text></table-cell><table-cell>Automatically generate business recommendations, KPI summaries and growth opportunities.</table-cell></table-row><table-row><table-cell></table-cell><table-cell><text weight=medium>Data Engineering</text></table-cell><table-cell>Clean, validate and upload large datasets directly into SQLite with automatic schema detection.</table-cell></table-row></table>
 
 ---
 
-# 📊 Project Highlights
+# Project Highlights
 
 <box gap=3>
   <row align=start gap=3>
@@ -64,9 +64,9 @@ The platform is designed to help business teams monitor sales, identify customer
 
 ---
 
-# 🧠 Key Features
+# Key Features
 
-### 📈 Executive Analytics Dashboard
+### Executive Analytics Dashboard
 
 * Revenue, Profit & Order KPIs
 * Daily / Monthly / Yearly Sales Trends
@@ -77,7 +77,7 @@ The platform is designed to help business teams monitor sales, identify customer
 
 ---
 
-### 👥 Customer Analytics
+### Customer Analytics
 
 * Customer Lifetime Value (CLV)
 * New vs Returning Customers
@@ -88,24 +88,24 @@ The platform is designed to help business teams monitor sales, identify customer
 
 ---
 
-### 💎 RFM Customer Segmentation
+### RFM Customer Segmentation
 
 Recency • Frequency • Monetary Analysis
 
 Segments generated automatically:
 
-* 🟢 Champions
-* 💎 Loyal Customers
-* ⭐ Potential Loyalists
-* 🟡 At Risk Customers
-* 🔴 Lost Customers
-* 👤 New Customers
+* Champions
+* Loyal Customers
+* Potential Loyalists
+* At Risk Customers
+* Lost Customers
+* New Customers
 
 Business teams can directly identify high-value and churn-risk customers.
 
 ---
 
-### 🛒 Product Intelligence Dashboard
+### Product Intelligence Dashboard
 
 * Top Selling Products
 * Worst Performing Products
@@ -116,7 +116,7 @@ Business teams can directly identify high-value and churn-risk customers.
 
 ---
 
-### 🤖 AI Insights Engine
+### AI Insights Engine
 
 Automatically generates:
 
@@ -129,7 +129,7 @@ Automatically generates:
 
 ---
 
-### 📤 Smart Data Upload Center
+### Smart Data Upload Center
 
 Enterprise-grade upload pipeline.
 
@@ -155,7 +155,7 @@ Supports automatic routing into:
 
 ---
 
-### ✍️ Dynamic SQLite Manual Entry
+### Dynamic SQLite Manual Entry
 
 Forms generated dynamically using SQLite schema.
 
@@ -169,7 +169,7 @@ Forms generated dynamically using SQLite schema.
 
 ---
 
-### 🗄️ Live Database Management
+### Live Database Management
 
 * Live Table Preview
 * Global Search
@@ -184,7 +184,7 @@ Forms generated dynamically using SQLite schema.
 
 ---
 
-### 📊 Power BI Executive Dashboard
+### Power BI Executive Dashboard
 
 Professional BI dashboard created using the same SQLite database.
 
@@ -199,7 +199,7 @@ Includes:
 
 ---
 
-# 🧱 System Architecture
+# System Architecture
 
 ```text
                     ┌────────────────────────┐
@@ -212,21 +212,21 @@ Includes:
                                │
               Automatic Table Detection (AI Logic)
                                │
-          ┌──────────┬──────────┬──────────┬──────────┐
-          ▼          ▼          ▼          ▼
-      Customers    Orders    Products   Order Items
-          │          │          │          │
-          └──────────┴──────────┴──────────┘
-                     SQLite Database
-                            │
-        ┌───────────────────┼───────────────────┐
-        ▼                   ▼                   ▼
- Streamlit Dashboard   AI Insights Engine   Power BI Reports
+                ┌──────────┬──────────┬──────────┬
+                ▼          ▼          ▼          ▼
+          Customers    Orders    Products   Order Items
+                │          │          │          │
+                └──────────┴──────────┴──────────┘
+                         SQLite Database
+                                │
+            ┌───────────────────┼───────────────────┐───────────────────┐
+            ▼                   ▼                   ▼                   ▼
+     Streamlit Dashboard   AI Insights Engine   Power BI Reports   Excel Report Center
 ```
 
 ---
 
-# 📁 Project Structure
+# Project Structure
 
 ```text
 CommerceIQ/
@@ -239,7 +239,7 @@ CommerceIQ/
 │
 ├── database/
 │   ├── commerceiq.db
-│   └── schema.sql
+│ 
 │
 ├── pages/
 │   ├── Home.py
@@ -254,22 +254,18 @@ CommerceIQ/
 │
 ├── datasets/
 │   ├── ecommerce_orders_50000.csv
-│   └── ecommerce_orders_50000.xlsx
+│  
 │
 ├── assets/
 │   ├── dashboard_preview.png
 │   ├── upload_center.png
 │   ├── powerbi_dashboard.png
 │   └── customer_dashboard.png
-│
-└── notebooks/
-    ├── data_cleaning.ipynb
-    └── feature_engineering.ipynb
 ```
 
 ---
 
-# ⚙️ Technology Stack
+# Technology Stack
 
 | Layer            | Technologies        |
 | ---------------- | ------------------- |
@@ -284,7 +280,7 @@ CommerceIQ/
 
 ---
 
-# 📊 Dataset Information
+# Dataset Information
 
 | Dataset     | Records  |
 | ----------- | -------- |
@@ -304,27 +300,12 @@ CommerceIQ/
 
 ---
 
-# 📷 Dashboard Preview
+# Dashboard Preview
 
-### 🏠 Executive Dashboard
-
-*Add Screenshot Here*
-
-### 📤 Smart Upload Center
-
-*Add Screenshot Here*
-
-### 👥 Customer Analytics Dashboard
-
-*Add Screenshot Here*
-
-### 📊 Power BI Executive Dashboard
-
-*Add Screenshot Here*
 
 ---
 
-# 🚀 Installation
+# Installation
 
 ## Clone Repository
 
@@ -361,7 +342,7 @@ Application launches locally.
 
 ---
 
-# 🌐 Deployment
+# Deployment
 
 CommerceIQ is deployment-ready on **Streamlit Community Cloud**.
 
@@ -369,7 +350,7 @@ CommerceIQ is deployment-ready on **Streamlit Community Cloud**.
 
 1. Push project to GitHub.
 2. Connect repository with Streamlit Cloud.
-3. Set `app.py` as entry point.
+3. Set `Home.py` as entry point.
 4. Add environment variable:
 
 ```env
@@ -380,7 +361,7 @@ DATABASE_URL=sqlite:///database/commerceiq.db
 
 ---
 
-# 📈 Business Impact
+# Business Impact
 
 CommerceIQ helps organizations:
 
@@ -392,7 +373,7 @@ CommerceIQ helps organizations:
 
 ---
 
-# 🎓 Skills Demonstrated
+# Skills Demonstrated
 
 ### Data Analytics
 
@@ -426,7 +407,7 @@ CommerceIQ helps organizations:
 
 ---
 
-# 🏆 Resume Impact
+# Resume Impact
 
 **CommerceIQ** demonstrates experience across:
 
@@ -447,7 +428,7 @@ Suitable for roles including:
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 ## Aditya Sharma
 
@@ -455,7 +436,7 @@ Suitable for roles including:
 
 **Tech Stack**
 
-Python • SQL • Power BI • Streamlit • Pandas • Machine Learning
+Python • SQL • Power BI • Streamlit • Pandas • Excel • SQLite 
 
 ---
 
