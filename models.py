@@ -10,11 +10,6 @@ from sqlalchemy.orm import relationship
 class Base(DeclarativeBase):
     pass
 
-
-# ==========================
-# Customer
-# ==========================
-
 class Customer(Base):
 
     __tablename__ = "customers"
@@ -34,11 +29,6 @@ class Customer(Base):
     orders: Mapped[list["Order"]] = relationship(
         back_populates="customer"
     )
-
-
-# ==========================
-# Product
-# ==========================
 
 class Product(Base):
 
@@ -61,11 +51,6 @@ class Product(Base):
     order_items: Mapped[list["OrderItem"]] = relationship(
         back_populates="product"
     )
-
-
-# ==========================
-# Order
-# ==========================
 
 class Order(Base):
 
@@ -111,11 +96,6 @@ class Order(Base):
         cascade="all, delete-orphan"
     )
 
-
-# ==========================
-# Order Item
-# ==========================
-
 class OrderItem(Base):
 
     __tablename__ = "order_items"
@@ -148,10 +128,6 @@ class OrderItem(Base):
         back_populates="order_items"
     )
 
-
-# ==========================
-# Daily Metrics
-# ==========================
 
 class DailyMetric(Base):
 
